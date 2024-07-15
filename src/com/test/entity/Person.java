@@ -1,6 +1,6 @@
 package com.test.entity;
 
-public class Person {
+public abstract class Person {
     String name;
     int age;
     String sex;
@@ -33,7 +33,6 @@ public class Person {
                 '}';
     }
 
-    public void test(){
-
-    }
+    public void test(){}
+    public abstract void exam();
 }

@@ -15,4 +15,8 @@ public class Worker extends Person{
     public void test() {
         System.out.println("我是工人");
     }
+
+    public void exam(){
+        System.out.println("我是工人，我不擅长考试");
+    }
 }

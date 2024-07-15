@@ -12,4 +12,8 @@ public class Student extends Person {
     public void test() {
         System.out.println("我是学生");
     }
+
+    public void exam(){
+        System.out.println("我是学生，我擅长考试");
+    }
 }
