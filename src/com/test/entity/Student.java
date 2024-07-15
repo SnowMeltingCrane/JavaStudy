@@ -1,11 +1,13 @@
 package com.test.entity;
 
-public class Student extends Person {
+import java.io.Serializable;
+
+public class Student extends Person implements Study,Cloneable{
     public Student(String name, int age,String sex){
         super(name,age,sex);
     }
     public void study(){
-        System.out.println("我是学生，我叫："+name);
+        System.out.println("我学习比较佛系");
     }
 
     @Override
@@ -15,5 +17,10 @@ public class Student extends Person {
 
     public void exam(){
         System.out.println("我是学生，我擅长考试");
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
