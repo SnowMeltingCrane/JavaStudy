@@ -1,20 +1,17 @@
 package com.test.entity;
 
 public class Test {
-    private final String name;
-
-    public Test(String name) {
-        this.name = name;
+    static {
+        System.out.println("外部");
     }
+    static String name = "小明";
 
-    public class Inner{
-
-        public String name;
-
-        public void test(String name){
-            System.out.println("方法的名字："+name);
-            System.out.println("内部类的名字："+this.name);
-            System.out.println("外部类的名字："+Test.this.name);
+    public static class Inner{
+        static {
+            System.out.println("内部");
+        }
+        public static void test() {
+            System.out.println("内部类的静态方法");
         }
     }
 }
