@@ -2,20 +2,14 @@ import com.test.entity.*;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
-        Student student = new Student() {
-            @Override
-            public void test() {
-                System.out.println("我是匿名内部类1");
-            }
-        };
-        student.test();
 
-        Study study = new Study() {
-            @Override
-            public void study() {
-                System.out.println("我是匿名内部类2");
-            }
+        Study study = (a) -> {
+            System.out.println("我是lambda表达式");
+            return a;
         };
-        study.study();
+        System.out.println(study.study(20));
+
+        Study study1 = (a) -> a;
+        System.out.println(study1.study(1));
     }
 }

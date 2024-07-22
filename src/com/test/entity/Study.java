@@ -1,5 +1,5 @@
 package com.test.entity;
 
 public interface Study {
-    public void study();
+    int study(int a);
 }
