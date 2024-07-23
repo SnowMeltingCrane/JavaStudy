@@ -2,14 +2,12 @@ import com.test.entity.*;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
+        Main main = new Main();
+        Study study = main::lbwnb;
+        System.out.println(study.study());
+    }
 
-        Study study = (a) -> {
-            System.out.println("我是lambda表达式");
-            return a;
-        };
-        System.out.println(study.study(20));
-
-        Study study1 = (a) -> a;
-        System.out.println(study1.study(1));
+    public String lbwnb(){
+        return  "卡布奇诺今犹在，不见当年倒茶人";
     }
 }
