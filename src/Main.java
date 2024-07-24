@@ -1,22 +1,29 @@
 import com.test.entity.*;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
-        try{
-            System.out.println("我是try");
-            int[] arr={1,2,3,4,5};
-            arr[-1]= 10;
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("我是catch");
-        }finally {
-            System.out.println("我是finally");
-        }
-
+        int[] arr = new int[]{5,6,4,2,5,8,5,6,2,3};
+        Main.sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    private static int test(int a ,int b){
-        if(b==0)
-            throw new RuntimeException("除数不能为0");
-        return a / b;
+    public static void sort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            boolean flag = false;
+            for (int j = 0; j < arr.length-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag){
+                break;
+            }
+        }
     }
 }
