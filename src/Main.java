@@ -5,23 +5,15 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = new int[]{5,6,4,2,5,8,5,6,2,3};
-        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Main.search(arr, 7));
+        System.out.println(test(10));
     }
-
-    public static int search(int[] arr,int a) {
-       int left = 0,right = arr.length-1;
-       while(left <= right) {
-           int mid = (left+right)/2;//会变的东西要写在循环体内
-           if(arr[mid] < a)
-               left = mid+1;
-           else if(arr[mid] > a)
-               right = mid-1;
-           else
-               return mid;
-       }
-       return -1;
+    public static int test(int n){
+        int[] arr = new int[n+1];
+        arr[0] = 1;
+        arr[1] = 1;
+        for(int i=2; i<=n; i++){
+            arr[i] = arr[i-1] + arr[i-2];
+        }
+        return arr[n];
     }
 }
