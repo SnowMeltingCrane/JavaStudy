@@ -6,19 +6,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        char[] arr=scanner.next().toCharArray();
-        System.out.println(test(arr));
+        hanoi('A','B','C',3);
     }
-    public static boolean test(char[] arr){
-        int i=0,j= arr.length-1;
-        while(i<j){
-            if(arr[i]!=arr[j])
-                return false;
-            i++;
-            j--;
+    public static void hanoi(char a, char b, char c,int n) {
+        if(n==1)
+            System.out.println(a+ "--->"+c);
+        else{
+            hanoi(a,c,b,n-1);
+            System.out.println(a+ "--->"+c);
+            hanoi(b,a,c,n-1);
         }
-        return true;
     }
-
 }
