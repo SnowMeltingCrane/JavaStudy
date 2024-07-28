@@ -1,6 +1,6 @@
 package com.test.entity;
 
-public class Score<T> {
+public class Score<T extends Number> {
     String name;
     String id;
     T value;
@@ -13,6 +13,10 @@ public class Score<T> {
 
     public T getValue() {
         return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
     }
 
     @Override

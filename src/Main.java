@@ -1,18 +1,14 @@
 import com.test.entity.*;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] arr = {1,4,2,5,3,7,6,9,8};
-        Arrays.sort(arr, (o1, o2) -> o2-o1);
-        System.out.println(Arrays.toString(arr));
+        Score<? extends Number> score1= new Score<>("","",10);
+        Score<? super Integer> score2= new Score<>("","",10);
 
-        String t= Main.test("test");
-        System.out.println(t);
+        score1.setValue(10);
+        score2.setValue(10);
     }
 
     public static <T> T test(T t){
