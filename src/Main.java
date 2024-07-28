@@ -1,18 +1,18 @@
+import com.test.collection.ArrayList;
 import com.test.entity.*;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-        Score<? extends Number> score1= new Score<>("","",10);
-        Score<? super Integer> score2= new Score<>("","",10);
+        ArrayList<String> list = new ArrayList();
+        for (int i = 0; i < 30; i++) {
+            list.add("A"+i,i);
+        }
+        System.out.println(list.get(3));
+        System.out.println(list);
 
-        score1.setValue(10);
-        score2.setValue(10);
     }
-
-    public static <T> T test(T t){
-        return t;
-    }
-
 }
