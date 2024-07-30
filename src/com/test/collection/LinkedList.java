@@ -45,7 +45,7 @@ public class LinkedList<E> {
         StringBuilder sb=new StringBuilder();
         Node<E> node=head.next;
         while (node!=null) {
-            sb.append(node.element+" ");
+            sb.append(node.element).append(" ");
             node=node.next;
         }
         return sb.toString();

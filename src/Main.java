@@ -22,13 +22,12 @@ public class Main {
         b.right= e;
         c.right=f;
 
-        preOrder(a);
-        System.out.println();
-        inOrder(a);
-        System.out.println();
-        postOrder(a);
-        System.out.println();
-        levelOrder(a);
+        HashTable<String> hashTable = new HashTable();
+        String test = "AAA";
+        System.out.println(hashTable.contains(test));
+        hashTable.put(test);
+        System.out.println(hashTable.contains(test));
+
     }
 
     public static void levelOrder(TreeNode<Character> root) {
