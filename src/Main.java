@@ -1,7 +1,6 @@
+import com.test.collection.*;
 import com.test.collection.ArrayList;
 import com.test.collection.LinkedList;
-import com.test.collection.LinkedQueue;
-import com.test.collection.LinkedStack;
 import com.test.entity.*;
 
 import java.util.*;
@@ -10,13 +9,67 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedQueue<String> queue = new LinkedQueue<>();
-        queue.offer("a");
-        queue.offer("b");
-        queue.offer("c");
-        queue.offer("d");
+        TreeNode<Character> a = new TreeNode<>('a');
+        TreeNode<Character> b = new TreeNode<>('b');
+        TreeNode<Character> c = new TreeNode<>('c');
+        TreeNode<Character> d = new TreeNode<>('d');
+        TreeNode<Character> e = new TreeNode<>('e');
+        TreeNode<Character> f = new TreeNode<>('f');
+
+        a.left= b;
+        a.right= c;
+        b.left= d;
+        b.right= e;
+        c.right=f;
+
+        preOrder(a);
+        System.out.println();
+        inOrder(a);
+        System.out.println();
+        postOrder(a);
+        System.out.println();
+        levelOrder(a);
+    }
+
+    public static void levelOrder(TreeNode<Character> root) {
+        LinkedQueue<TreeNode<Character>> queue = new LinkedQueue<>();
+        queue.offer(root);
         while(!queue.isEmpty()) {
-            System.out.println(queue.poll());
+            TreeNode<Character> current = queue.poll();
+            System.out.print(current.element+" ");
+            if(current.left != null) {
+                queue.offer(current.left);
+            }
+            if(current.right != null) {
+                queue.offer(current.right);
+            }
         }
+    }
+
+    public static void preOrder(TreeNode<Character> root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.element+" ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    public static void inOrder(TreeNode<Character> root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.element+" ");
+        inOrder(root.right);
+    }
+
+    public static void postOrder(TreeNode<Character> root) {
+        if (root == null) {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.element+" ");
     }
 }
