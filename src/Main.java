@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        try(FileInputStream in = new FileInputStream("火男.mp4");
-            FileOutputStream out = new FileOutputStream("xxx.mp4")){
+        try(FileReader in = new FileReader("text.txt");
+            FileWriter out = new FileWriter("xxx.txt")) {
             int len;
-            byte[] buf = new byte[1024];
+            char[] buf = new char[3];
             while((len = in.read(buf))!=-1){
                 out.write(buf, 0, len);
             }
