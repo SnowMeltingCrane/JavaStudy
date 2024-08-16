@@ -6,36 +6,37 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
-    public static int i;
 
-    public static synchronized void add(){
-        i++;
-    }
+
 
     public static void main(String[] args) throws InterruptedException {
-        Object lock = new Object();
-
+        Object lock1 = new Object();
+        Object lock2 = new Object();
         new Thread(()->{
-            for (int j = 0; j < 100000; j++) {
-                add();
-            }
-        }).start();
-
-        new Thread(()->{
-            for (int j = 0; j < 100000; j++) {
-                add();
-            }
-        }).start();
-
-        new Thread(()->{
-            synchronized(Main.class){
-                for (int j = 0; j < 100000; j++) {
-                    i++;
+            synchronized (lock1){
+                try {
+                    System.out.println("线程1运行中");
+                    Thread.sleep(1000);
+                    System.out.println("开始等待");
+                    lock1.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
+                System.out.println("线程1运行结束");
             }
         }).start();
 
-        Thread.sleep(1000);
-        System.out.println(i);
+        new Thread(()->{
+            synchronized (lock1){
+                System.out.println("线程2运行中");
+                try {
+                    Thread.sleep(1000);
+                    lock1.notify();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("线程2运行结束");
+            }
+        }).start();
     }
 }
