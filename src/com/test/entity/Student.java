@@ -1,11 +1,18 @@
 package com.test.entity;
 
-import java.io.Serializable;
+public class Student {
 
-public class Student implements Serializable {
     public String name;
+    public int age;
 
-    transient public int age;
+    public Student(String name, int age) {
+        this.name = name;
+        this.age=  age;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
@@ -15,7 +22,4 @@ public class Student implements Serializable {
                 '}';
     }
 
-    public void hello(){
-        System.out.println("我是学生");
-    }
 }
